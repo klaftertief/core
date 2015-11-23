@@ -51,6 +51,7 @@ tests =
         , test "appendSmall 1" <| assertEqual [1..33] (Array.toList (Array.append (Array.fromList [1..30]) (Array.fromList [31..33])))
         , test "appendSmall 2" <| assertEqual [1..33] (Array.toList (Array.append (Array.fromList [1..3]) (Array.fromList [4..33])))
         , test "appendAndSlice" <| assertEqual [0..100] (Array.toList holeArray)
+        , test "appendLarge" <| assertEqual [0..(32^2 - 31)] (Array.toList <| Array.append (Array.initialize 1 (always 0)) (Array.initialize (32^2 - 31) (\i -> i+1)))
         ]
       getAndSetTests = suite "Get and Set"
         [ test "get" <| assertEqual (Just 2) (Array.get 1 (Array.fromList [3,2,1]))
