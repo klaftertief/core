@@ -658,11 +658,11 @@ Elm.Native.Array.make = function(localRuntime) {
 		var subLengths = 0;
 		for (var i = 0; i < a.table.length; i++)
 		{
-			subLengths += a.table[i].table.length;
+			subLengths += a.table[i].table ? a.table[i].table.length : 1;
 		}
 		for (var i = 0; i < b.table.length; i++)
 		{
-			subLengths += b.table[i].table.length;
+			subLengths += b.table[i].table ? b.table[i].table.length : 1;
 		}
 
 		var toRemove = a.table.length + b.table.length;
